@@ -1,0 +1,42 @@
+
+
+{% extends "dashboard/index.html" %}
+<!---->
+{% load static %}
+
+
+{% block content %}
+<div class="row">
+  <div class="card">
+    <h2>Datos</h2>
+
+    <a href="{% url 'dashboard_app:subir_csv' %}" class="btn btn-primary">Subir</a>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>website</th>
+        <th>country</th>
+        <th>no. empp.</th>
+      </thead>
+      <tbody>
+        
+        {% for o in obj  %}
+        <tr>
+          <td>{{o.id}}</td>
+          <td>{{o.name}}</td>
+          <td>{{o.website}}</td>
+          <td>{{o.country}}</td>
+          <td>{{o.employees}}</td>
+        </tr>
+        {% endfor %}
+          
+      
+          
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

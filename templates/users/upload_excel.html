@@ -1,0 +1,17 @@
+{% extends "dashboard/index.html" %}
+<!---->
+{% load static %}
+
+
+{% block content %}
+
+<h4>Crear usuarios por medio de un Excel</h4>
+<p>Nota: Recuerda de no duplicar el correo electronico en tu tabla excel por custiones de duplicidad de usuario.</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <button type="submit" class="btn btn-secondary">Crear Usuarios</button>
+    </form>
+
+{% endblock content %}

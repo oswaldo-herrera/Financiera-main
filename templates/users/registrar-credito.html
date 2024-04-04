@@ -1,0 +1,159 @@
+
+
+{% extends "dashboard/index.html" %}
+<!---->
+{% load static %}
+<!---->
+{% load humanize %}
+{% block title %}Datatables{% endblock title %}
+<!---->
+{% block extra_css %}
+
+
+
+<!-- third party css -->
+<link
+  href="{% static 'libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'libs/datatables.net-select-bs5/css//select.bootstrap5.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<!-- third party css end -->
+
+{% endblock extra_css %}
+<!---->
+{% block topbar %}
+<!---->
+<!---->
+{% include "partials/topbar.html" with pagetitle="Registro | Creditos" %}
+<!---->
+{% endblock topbar %}
+<!---->
+{% block content %}
+
+
+<!-- prestamos -->
+
+<div class="row ">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body w-50">
+                
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-secondary">Registrar</button>
+                </form>
+                
+               
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+<!-- prestamos -->
+
+
+{% include "partials/footer.html" %}
+<!---->
+{% endblock content %}
+<!---->
+{% block extra_js %}
+
+<script>
+
+
+  //crear producto
+  function abrirModalEdicion(url) {
+    $("#productosModal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+  //editar producto
+  function actualizarModalEdicion(url) {
+    $("#actualizarProductosModal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+  //eliminar producto
+  function eliminarModalEdicion(url) {
+    $("#eliminarProductosModal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+
+  //crear plazo
+  function plazoModal(url) {
+    $("#plazoModal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+
+  //editar plazo
+  function actualizarModalPlazo(url) {
+    $("#actualizarPlazoModal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+
+  //eliminar plazo
+  function eliminarModalPlazo(url) {
+    $("#eliminarPlazoModal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+
+  function grupalModal(url) {
+    $("#grupalModal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+  function actualizarModalGrupal(url) {
+    $("#actualizarPlazoGrupal").load(url, function () {
+      $(this).modal("show");
+    });
+  }
+
+
+
+</script>
+
+<!-- third party js -->
+<script src="{% static 'libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-keytable/js/dataTables.keyTable.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-select/js/dataTables.select.min.js' %}"></script>
+<script src="{% static 'libs/pdfmake/build/pdfmake.min.js' %}"></script>
+<script src="{% static 'libs/pdfmake/build/vfs_fonts.js' %}"></script>
+<!-- third party js ends -->
+
+<!-- Datatables init -->
+<script src="{% static 'js/pages/datatables.init.js' %}"></script>
+
+
+<!---->
+
+
+{% endblock extra_js %}
